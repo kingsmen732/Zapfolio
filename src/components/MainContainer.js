@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BentoLayout from './BentoLayout';
 import ProfileSidebar from './ProfileSidebar';
 import Footer from './Footer';
+import Education from './EducationSection';
 
 const MainContainer = () => {
   // Lift dark mode state to MainContainer
@@ -26,7 +27,7 @@ const MainContainer = () => {
           <BentoLayout isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         </div>
       </div>
-
+      
       {/* Footer */}
       <div className="my-5 lg:my-0">
         <Footer />
