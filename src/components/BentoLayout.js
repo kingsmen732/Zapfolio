@@ -35,7 +35,6 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
   const [animationDone, setAnimationDone] = useState(false);
   const [contactOpen, setContactOpen] = useState(false)
 
-  // GSAP animation for grid items on mount
   useEffect(() => {
     const elements = gridRef.current.children;
     gsap.set(elements, {
@@ -55,7 +54,6 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
     });
   }, []);
 
-  // GSAP hover animation after initial animation
   useEffect(() => {
     if (animationDone) {
       const elements = gridRef.current.children;
@@ -83,20 +81,19 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
   }, [animationDone]);
 
   return (
-    <div className={`app-container ${isDarkMode ? "dark" : "light"}`}>
-      {/* Dark/Light Mode Toggle Button */}
+    <div className={`app-container ${isDarkMode ? "dark" : "light"} p-4`}>
       <button
         onClick={toggleDarkMode}
         className="p-3 px-4 bg-gray-800 text-white rounded-md fixed top-4 right-4 z-50"
       >
         {isDarkMode ? (
-          <i className="fas fa-sun"></i> // Light Mode icon (Sun icon)
+          <i className="fas fa-sun"></i>
         ) : (
-          <i className="fas fa-moon"></i> // Dark Mode icon (Moon icon)
+          <i className="fas fa-moon"></i>
         )}
       </button>
 
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Profile Image */}
         <div
           className="col-span-1 sm:col-span-2 lg:col-span-2 aspect-square sm:aspect-[2/1] rounded-xl border-transparent p-4 shadow-md flex justify-center items-center"
@@ -106,19 +103,27 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
             backgroundPosition: "center",
           }}
         >
-          <span className="text-xl lg:text-4xl font-bold">Who Am I?</span>
+          <span className="text-xl lg:text-4xl text-black dark:text-white font-bold">Who Am I?</span>
         </div>
 
         {/* Resume */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
           <a href={resume} target="_blank" rel="noopener noreferrer">
-            <img src={resumeImage} alt="Resume" className="w-full h-full object-cover" />
+            <img
+              src={resumeImage}
+              alt="Resume"
+              className="w-full h-full object-cover"
+            />
           </a>
         </div>
 
         {/* Experience */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
-          <img src={fresherLogo} alt="Experience" className="w-full h-full object-cover" />
+          <img
+            src={fresherLogo}
+            alt="Experience"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* My Setup */}
@@ -132,28 +137,44 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
         {/* GitHub */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
           <a href={github} target="_blank" rel="noopener noreferrer">
-            <img src={githubLogo} alt="GitHub Logo" className="w-full h-full object-cover" />
+            <img
+              src={githubLogo}
+              alt="GitHub Logo"
+              className="w-full h-full object-cover"
+            />
           </a>
         </div>
 
         {/* LinkedIn */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
-            <img src={linkedInLogo} alt="LinkedIn Logo" className="w-full h-full object-cover" />
+            <img
+              src={linkedInLogo}
+              alt="LinkedIn Logo"
+              className="w-full h-full object-cover"
+            />
           </a>
         </div>
 
         {/* X/Twitter */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
           <a href={twitter} target="_blank" rel="noopener noreferrer">
-            <img src={xLogo} alt="XTwitter" className="w-full h-full object-cover" />
+            <img
+              src={xLogo}
+              alt="X/Twitter Logo"
+              className="w-full h-full object-cover"
+            />
           </a>
         </div>
 
         {/* Email */}
         <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
           <a href={`mailto:${email}`}>
-            <img src={mailLogo} alt="Mail Logo" className="w-full h-full object-cover" />
+            <img
+              src={mailLogo}
+              alt="Mail Logo"
+              className="w-full h-full object-cover"
+            />
           </a>
         </div>
 
@@ -164,11 +185,7 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
       </div>
 
       {/* Project Modal */}
-      {isModalOpen && (
-        <div className="flex flex-col md:flex-row gap-10">
-          <ProjectModal setIsModalOpen={setIsModalOpen} mode={isDarkMode} />
-        </div>
-      )}
+      {isModalOpen && <ProjectModal onClose={() => setIsModalOpen(false)} mode={isDarkMode} />}
 
       {/*Contact form*/}
       {contactOpen && (

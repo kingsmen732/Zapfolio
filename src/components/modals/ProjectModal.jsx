@@ -4,8 +4,9 @@ import cross from "../../assets/cross.svg";
 import Project from "./Project";
 
 const ProjectModal = (props) => {
+  console.log("props", props);
   const isDarkMode = props?.mode;
-
+  
   return (
     <div className="fixed inset-0 z-[1000] w-[90%] md:w-[75%] lg:w-[50%] mx-auto my-auto h-full grid place-items-center overflow-auto">
       <div
@@ -19,7 +20,7 @@ const ProjectModal = (props) => {
           src={cross}
           alt="Close"
           className="absolute top-5 right-5 w-6 h-6 cursor-pointer hover:scale-110 transition-transform duration-200 ease-in-out"
-          onClick={() => props?.setIsModalOpen(false)}
+          onClick={() => props?.onClose()}
         />
         <div
           className={`text-3xl font-bold text-center border-b mx-6 pb-4 mb-6 ${
@@ -46,7 +47,7 @@ const ProjectModal = (props) => {
         </div>
         <div className="mx-auto flex justify-center mt-6">
           <button
-            onClick={() => props?.setIsModalOpen(false)}
+            onClick={() => props?.onClose()}
             className={`px-6 py-2 font-semibold rounded-md shadow-md transition-all duration-200 ease-in-out ${
               isDarkMode
                 ? "bg-teal-500 text-white hover:bg-teal-600"

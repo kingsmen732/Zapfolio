@@ -17,7 +17,7 @@ export const skills = [
     "High Creativity Connoisseur",
     "IoT Innovator",
     "Prototyping Mastery",
-    "3D Design Dynamo"
+    "3D Design Dynamo",
 ];
 
 export const resume = "./Resume.pdf"; //resume is working fine now

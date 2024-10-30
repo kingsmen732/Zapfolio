@@ -1,14 +1,15 @@
+
 import React from 'react';
 
 const getCurrentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <div>
-      <p className="text-base lg:text-lg">
+    <footer className="w-full py-4 text-center">
+      <p className="text-sm sm:text-base lg:text-lg ">
         &copy; {getCurrentYear} kingsmen734
       </p>
-    </div>
+    </footer>
   );
 };
 
