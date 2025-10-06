@@ -1,4 +1,4 @@
-# Opensoruce Portfolio Customizable to any Profile ~ Bento Style
+# Opensource Portfolio Customizable to any Profile ~ Bento Style
 
 ## Have a min to have a portfolio?! Here is your chance to make one
 
