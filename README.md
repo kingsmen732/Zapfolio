@@ -24,12 +24,12 @@ To get this project up and running on your local machine, follow these steps:
 2. **Install the dependencies:**
 
    ```bash
-   yarn install
+   npm install
    ```
 
 3. **Start the development server:**
    ```bash
-   yarn start
+   npm run dev
    ```
    This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will automatically reload if you make edits. You'll also see any lint errors in the console.
 
