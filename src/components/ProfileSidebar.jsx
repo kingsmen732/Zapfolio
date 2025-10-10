@@ -2,8 +2,8 @@ import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { name, skills, title } from '../profileconfig';
 
-const ProfileSidebar = (props) => {
-  const isDarkMode = props.isDarkMode;
+const ProfileSidebar = ({ isDarkMode }) => {
+  // const isDarkMode = props.isDarkMode;
 
   // Convert your existing skills array (from react-typical format)
   // to the format react-type-animation expects.
@@ -22,13 +22,14 @@ const ProfileSidebar = (props) => {
       </h1>
       <p className="text-xl lg:text-2xl font-light mb-4">{title}</p>
 
-      <TypeAnimation
-        sequence={animationSequence}
-        wrapper="p"
-        speed={50}
-        repeat={Infinity}
-        className={`text-xl lg:text-2xl ${isDarkMode ? 'text-white' : 'text-black'}`}
-      />
+      <p className={`text-xl lg:text-2xl ${isDarkMode ? 'text-white' : 'text-black'}`}>
+        <TypeAnimation
+          sequence={animationSequence}
+          wrapper="p"
+          speed={50}
+          repeat={Infinity}
+        />
+      </p>
     </div>
   );
 };
