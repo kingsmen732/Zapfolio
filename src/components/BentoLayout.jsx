@@ -81,7 +81,7 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
   }, [animationDone]);
 
   return (
-    <div className={`app-container ${isDarkMode ? "dark" : "light"} p-4`}>
+    <div className={`app-container ${isDarkMode ? "" : "light"} p-4`}>
       <button
         onClick={toggleDarkMode}
         className="p-3 px-4 bg-gray-800 text-white rounded-md fixed top-4 right-4 z-50"

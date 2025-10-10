@@ -1,6 +1,6 @@
 import React from "react";
 import cross from "../../assets/cross.svg";
-import Contact from "../ContactMeForm.js"
+import Contact from "../ContactMeForm.jsx"
 
 const ContactModal = (props) => {
   const isDarkMode = props?.mode;
