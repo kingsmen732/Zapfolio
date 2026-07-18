@@ -12,6 +12,7 @@ import contactme from '../assets/contact.jpg'
 import { email, github, linkedin, twitter, resume } from "../profileconfig";
 import ProjectModal from "./modals/ProjectModal";
 import ContactModal from "./modals/ContactModal";
+import ExperienceModal from "./modals/ExperienceModal";
 // import rookieLogo from '../assets/experience/Rookie.svg';
 // import intermediateLogo from '../assets/experience/Intermediate.svg';
 // import advancedLogo from '../assets/experience/Advanced.svg';
@@ -31,6 +32,7 @@ import ContactModal from "./modals/ContactModal";
 
 const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [experienceOpen, setExperienceOpen] = useState(false);
   const gridRef = useRef(null);
   const [animationDone, setAnimationDone] = useState(false);
   const [contactOpen, setContactOpen] = useState(false)
@@ -118,12 +120,14 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
         </div>
 
         {/* Experience */}
-        <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden">
-          <img
-            src={fresherLogo}
-            alt="Experience"
-            className="w-full h-full object-cover"
-          />
+        <div className="col-span-1 aspect-square rounded-xl border-transparent shadow-md overflow-hidden cursor-pointer">
+          <button className="relative w-full h-full" onClick={() => setExperienceOpen(true)}>
+            <img
+              src={fresherLogo}
+              alt="Experience"
+              className="w-full h-full object-cover"
+            />
+          </button>
         </div>
 
         {/* My Setup */}
@@ -186,6 +190,11 @@ const BentoLayout = ({ isDarkMode, toggleDarkMode }) => {
 
       {/* Project Modal */}
       {isModalOpen && <ProjectModal onClose={() => setIsModalOpen(false)} mode={isDarkMode} />}
+
+      {/* Experience Modal */}
+      {experienceOpen && (
+        <ExperienceModal onClose={() => setExperienceOpen(false)} mode={isDarkMode} />
+      )}
 
       {/*Contact form*/}
       {contactOpen && (
